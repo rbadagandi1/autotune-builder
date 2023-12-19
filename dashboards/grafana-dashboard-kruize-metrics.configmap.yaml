@@ -1,96 +1,7 @@
 apiVersion: v1
 data:
-  Kruize_Metrics.json: |-
+  kruize-metrics.json: |
     {
-      "__inputs": [
-        {
-          "name": "DS_CRCP01UE1-PROMETHEUS",
-          "label": "crcp01ue1-prometheus",
-          "description": "",
-          "type": "datasource",
-          "pluginId": "prometheus",
-          "pluginName": "Prometheus"
-        },
-        {
-          "name": "DS_APP-SRE-PROD-01-PROMETHEUS",
-          "label": "app-sre-prod-01-prometheus",
-          "description": "",
-          "type": "datasource",
-          "pluginId": "prometheus",
-          "pluginName": "Prometheus"
-        },
-        {
-          "name": "DS_TELEMETER-RECENT-PRODUCTION",
-          "label": "telemeter-recent-production",
-          "description": "",
-          "type": "datasource",
-          "pluginId": "prometheus",
-          "pluginName": "Prometheus"
-        }
-      ],
-      "__elements": {},
-      "__requires": [
-        {
-          "type": "panel",
-          "id": "alertlist",
-          "name": "Alert list",
-          "version": ""
-        },
-        {
-          "type": "panel",
-          "id": "dashlist",
-          "name": "Dashboard list",
-          "version": ""
-        },
-        {
-          "type": "grafana",
-          "id": "grafana",
-          "name": "Grafana",
-          "version": "9.3.8"
-        },
-        {
-          "type": "panel",
-          "id": "graph",
-          "name": "Graph (old)",
-          "version": ""
-        },
-        {
-          "type": "panel",
-          "id": "heatmap",
-          "name": "Heatmap",
-          "version": ""
-        },
-        {
-          "type": "datasource",
-          "id": "prometheus",
-          "name": "Prometheus",
-          "version": "1.0.0"
-        },
-        {
-          "type": "panel",
-          "id": "stat",
-          "name": "Stat",
-          "version": ""
-        },
-        {
-          "type": "panel",
-          "id": "table-old",
-          "name": "Table (old)",
-          "version": ""
-        },
-        {
-          "type": "panel",
-          "id": "text",
-          "name": "Text",
-          "version": ""
-        },
-        {
-          "type": "panel",
-          "id": "timeseries",
-          "name": "Time series",
-          "version": ""
-        }
-      ],
       "annotations": {
         "list": [
           {
@@ -116,14 +27,13 @@ data:
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
-      "id": null,
+      "id": 350825,
       "links": [],
       "liveNow": false,
       "panels": [
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "$datasource"
           },
           "fieldConfig": {
             "defaults": {
@@ -145,8 +55,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -174,7 +83,7 @@ data:
             "orientation": "horizontal",
             "reduceOptions": {
               "calcs": [
-                "mean"
+                "last"
               ],
               "fields": "",
               "values": false
@@ -184,10 +93,6 @@ data:
           "pluginVersion": "9.3.8",
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "count(kube_pod_info{pod=~\"kruize-recommendations-[^-]*-[^-]*$\"})",
               "legendFormat": "__auto",
@@ -226,8 +131,7 @@ data:
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -278,7 +182,7 @@ data:
             "orientation": "horizontal",
             "reduceOptions": {
               "calcs": [
-                "mean"
+                "last"
               ],
               "fields": "",
               "values": false
@@ -288,10 +192,6 @@ data:
           "pluginVersion": "9.3.8",
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "avg(kube_pod_container_resource_requests{resource=\"cpu\",unit=\"core\",pod=~\"kruize-recommendations-[^-]*-[^-]*\"})",
               "legendFormat": "__auto",
@@ -304,8 +204,7 @@ data:
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -356,7 +255,7 @@ data:
             "orientation": "horizontal",
             "reduceOptions": {
               "calcs": [
-                "mean"
+                "last"
               ],
               "fields": "",
               "values": false
@@ -366,10 +265,6 @@ data:
           "pluginVersion": "9.3.8",
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "avg(kube_pod_container_resource_limits{resource=\"cpu\",unit=\"core\",pod=~\"kruize-recommendations-[^-]*-[^-]*\"})",
               "legendFormat": "__auto",
@@ -382,8 +277,7 @@ data:
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -434,7 +328,7 @@ data:
             "orientation": "horizontal",
             "reduceOptions": {
               "calcs": [
-                "mean"
+                "last"
               ],
               "fields": "",
               "values": false
@@ -444,10 +338,6 @@ data:
           "pluginVersion": "9.3.8",
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "avg(kube_pod_container_resource_requests{resource=\"memory\",unit=\"byte\",pod=~\"kruize-recommendations-[^-]*-[^-]*\"}) / 1024 / 1024",
               "legendFormat": "__auto",
@@ -460,8 +350,7 @@ data:
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -512,7 +401,7 @@ data:
             "orientation": "horizontal",
             "reduceOptions": {
               "calcs": [
-                "mean"
+                "last"
               ],
               "fields": "",
               "values": false
@@ -522,10 +411,6 @@ data:
           "pluginVersion": "9.3.8",
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "avg(kube_pod_container_resource_limits{resource=\"memory\",unit=\"byte\",pod=~\"kruize-recommendations-[^-]*-[^-]*\"}) / 1024 / 1024",
               "legendFormat": "__auto",
@@ -538,8 +423,7 @@ data:
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "description": "",
           "fieldConfig": {
@@ -604,7 +488,8 @@ data:
           "options": {
             "legend": {
               "calcs": [
-                "max"
+                "max",
+                "mean"
               ],
               "displayMode": "table",
               "placement": "bottom",
@@ -617,10 +502,6 @@ data:
           },
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "sum(rate(container_cpu_usage_seconds_total{pod=~\"kruize-recommendations-[^-]*-[^-]*$\"}[1m]))",
               "hide": false,
@@ -629,10 +510,6 @@ data:
               "refId": "A"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "sum(rate(container_cpu_cfs_throttled_seconds_total{pod=~\"kruize-recommendations-[^-]*-[^-]*$\"}[1m]))",
               "hide": false,
@@ -641,10 +518,6 @@ data:
               "refId": "D"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "avg(kube_pod_container_resource_requests{resource=\"cpu\",unit=\"core\",pod=~\"kruize-recommendations-[^-]*-[^-]*\"})",
               "hide": true,
@@ -653,10 +526,6 @@ data:
               "refId": "B"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "avg(kube_pod_container_resource_limits{resource=\"cpu\",unit=\"core\",pod=~\"kruize-recommendations-[^-]*-[^-]*\"})",
               "hide": true,
@@ -670,8 +539,7 @@ data:
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "description": "",
           "fieldConfig": {
@@ -736,7 +604,8 @@ data:
           "options": {
             "legend": {
               "calcs": [
-                "max"
+                "max",
+                "mean"
               ],
               "displayMode": "table",
               "placement": "bottom",
@@ -749,10 +618,6 @@ data:
           },
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "sum(container_memory_working_set_bytes{pod=~\"kruize-recommendations-[^-]*-[^-]*$\"}) / 1024 / 1024",
               "hide": false,
@@ -761,10 +626,6 @@ data:
               "refId": "A"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "avg(kube_pod_container_resource_requests{resource=\"memory\",unit=\"byte\",pod=~\"kruize-recommendations-[^-]*-[^-]*\"}) /1024 / 1024",
               "hide": true,
@@ -773,16 +634,20 @@ data:
               "refId": "B"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "avg(kube_pod_container_resource_limits{resource=\"memory\",unit=\"byte\",pod=~\"kruize-recommendations-[^-]*-[^-]*\"}) / 1024 / 1024",
               "hide": true,
               "legendFormat": "__auto",
               "range": true,
               "refId": "C"
+            },
+            {
+              "editorMode": "code",
+              "expr": "sum({pod=~\"kruize-recommendations-[^-]*-[^-]*$\"}) / 1024 / 1024",
+              "hide": true,
+              "legendFormat": "kruize-recommendations total memory usage (in MB)",
+              "range": true,
+              "refId": "D"
             }
           ],
           "title": "Memory Usage (in MB)",
@@ -816,8 +681,7 @@ data:
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "description": "",
           "fieldConfig": {
@@ -885,7 +749,8 @@ data:
           "options": {
             "legend": {
               "calcs": [
-                "max"
+                "max",
+                "mean"
               ],
               "displayMode": "table",
               "placement": "bottom",
@@ -898,10 +763,6 @@ data:
           },
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "max(max_over_time(kruizeAPI_max{api=\"updateRecommendations\",status=\"success\"}[1m]))",
               "hide": false,
@@ -910,25 +771,28 @@ data:
               "refId": "A"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "sum(increase(kruizeAPI_sum{api=\"updateRecommendations\",status=\"success\"}[1m])) / sum(increase(kruizeAPI_count{api=\"updateRecommendations\",status=\"success\"}[1m]))",
               "hide": false,
               "legendFormat": "Avg perAPIcall in last 1m",
               "range": true,
               "refId": "B"
+            },
+            {
+              "editorMode": "code",
+              "expr": "sum(increase(kruizeAPI_sum{api=\"updateRecommendations\",status=\"success\"}[1m])) ",
+              "hide": true,
+              "legendFormat": "Increase in last 1m",
+              "range": true,
+              "refId": "C"
             }
           ],
-          "title": "Time (in ms) taken by api updateRecommendations",
+          "title": "Time (in s) taken by api updateRecommendations",
           "type": "timeseries"
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "description": "",
           "fieldConfig": {
@@ -988,7 +852,7 @@ data:
           },
           "gridPos": {
             "h": 8,
-            "w": 12,
+            "w": 6,
             "x": 12,
             "y": 23
           },
@@ -996,7 +860,9 @@ data:
           "options": {
             "legend": {
               "calcs": [
-                "max"
+                "max",
+                "mean",
+                "last"
               ],
               "displayMode": "table",
               "placement": "bottom",
@@ -1009,25 +875,131 @@ data:
           },
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "sum(increase(kruizeAPI_count{api=\"updateRecommendations\"}[1m])) by (api,status)",
               "hide": false,
               "legendFormat": "__auto",
               "range": true,
               "refId": "A"
+            },
+            {
+              "editorMode": "code",
+              "expr": "sum(increase(kruizeAPI_count{api=\"updateRecommendations\"}[$__range])) by (api,status)",
+              "hide": true,
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "B"
             }
           ],
-          "title": "No.of calls to api  updateRecommendations",
+          "title": "No.of calls to api updateRecommendations",
           "type": "timeseries"
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "${datasource}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineStyle": {
+                  "fill": "solid"
+                },
+                "lineWidth": 0.75,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 6,
+            "x": 18,
+            "y": 23
+          },
+          "id": 83,
+          "options": {
+            "legend": {
+              "calcs": [
+                "max",
+                "last"
+              ],
+              "displayMode": "table",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "editorMode": "code",
+              "expr": "sum(increase(kruizeAPI_count{api=\"updateRecommendations\"}[1m])) by (api,status)",
+              "hide": true,
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "editorMode": "code",
+              "expr": "sum(increase(kruizeAPI_count{api=\"updateRecommendations\"}[$__range])) by (api,status)",
+              "hide": false,
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "B"
+            }
+          ],
+          "title": "Total calls to api updateRecommendations for an interval",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "uid": "${datasource}"
           },
           "description": "",
           "fieldConfig": {
@@ -1095,7 +1067,9 @@ data:
           "options": {
             "legend": {
               "calcs": [
-                "max"
+                "max",
+                "mean",
+                "last"
               ],
               "displayMode": "table",
               "placement": "bottom",
@@ -1108,10 +1082,6 @@ data:
           },
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "max(max_over_time(kruizeAPI_max{api=\"updateResults\",status=\"success\"}[1m]))",
               "hide": false,
@@ -1120,10 +1090,6 @@ data:
               "refId": "A"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "sum(increase(kruizeAPI_sum{api=\"updateResults\",status=\"success\"}[1m])) / sum(increase(kruizeAPI_count{api=\"updateResults\",status=\"success\"}[1m]))",
               "hide": false,
@@ -1132,13 +1098,12 @@ data:
               "refId": "B"
             }
           ],
-          "title": "Time (in ms) taken by api updateResults",
+          "title": "Time (in s) taken by api updateResults",
           "type": "timeseries"
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "description": "",
           "fieldConfig": {
@@ -1195,7 +1160,7 @@ data:
           },
           "gridPos": {
             "h": 8,
-            "w": 12,
+            "w": 6,
             "x": 12,
             "y": 31
           },
@@ -1203,7 +1168,9 @@ data:
           "options": {
             "legend": {
               "calcs": [
-                "max"
+                "max",
+                "mean",
+                "last"
               ],
               "displayMode": "table",
               "placement": "bottom",
@@ -1216,19 +1183,123 @@ data:
           },
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "sum(increase(kruizeAPI_count{api=\"updateResults\"}[1m])) by (api,status)",
               "hide": false,
               "legendFormat": "__auto",
               "range": true,
               "refId": "A"
+            },
+            {
+              "editorMode": "code",
+              "expr": "sum(increase(kruizeAPI_count{api=\"updateResults\"}[$__range])) by (api,status)",
+              "hide": true,
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "B"
             }
           ],
-          "title": "No.of calls to api  updateResults",
+          "title": "No.of calls to api updateResults",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "uid": "${datasource}"
+          },
+          "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 10,
+                "gradientMode": "hue",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 0.75,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 6,
+            "x": 18,
+            "y": 31
+          },
+          "id": 84,
+          "options": {
+            "legend": {
+              "calcs": [
+                "max",
+                "last"
+              ],
+              "displayMode": "table",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "none"
+            }
+          },
+          "targets": [
+            {
+              "editorMode": "code",
+              "expr": "sum(increase(kruizeAPI_count{api=\"updateResults\"}[1m])) by (api,status)",
+              "hide": true,
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "editorMode": "code",
+              "expr": "sum(increase(kruizeAPI_count{api=\"updateResults\"}[$__range])) by (api,status)",
+              "hide": false,
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "B"
+            }
+          ],
+          "title": "No.of calls to api updateResults for an interval",
           "type": "timeseries"
         },
         {
@@ -1259,8 +1330,7 @@ data:
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "description": "",
           "fieldConfig": {
@@ -1325,7 +1395,8 @@ data:
           "options": {
             "legend": {
               "calcs": [
-                "max"
+                "max",
+                "mean"
               ],
               "displayMode": "table",
               "placement": "bottom",
@@ -1338,10 +1409,6 @@ data:
           },
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "max(max_over_time(kruizeDB_max{method=\"addBulkResultsToDBAndFetchFailedResults\",status=\"success\"}[1m]))",
               "hide": false,
@@ -1350,10 +1417,6 @@ data:
               "refId": "A"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "sum(increase(kruizeDB_sum{method=\"addBulkResultsToDBAndFetchFailedResults\",status=\"success\"}[1m])) / sum(increase(kruizeDB_count{method=\"addBulkResultsToDBAndFetchFailedResults\",status=\"success\"}[1m]))",
               "hide": false,
@@ -1362,13 +1425,12 @@ data:
               "refId": "B"
             }
           ],
-          "title": "Time (in ms) taken by method  addBulkResultsToDBAndFetchFailedResults",
+          "title": "Time (in s) taken by method addBulkResultsToDBAndFetchFailedResults",
           "type": "timeseries"
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "description": "",
           "fieldConfig": {
@@ -1433,7 +1495,8 @@ data:
           "options": {
             "legend": {
               "calcs": [
-                "max"
+                "max",
+                "mean"
               ],
               "displayMode": "table",
               "placement": "bottom",
@@ -1446,10 +1509,6 @@ data:
           },
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "sum(increase(kruizeDB_count{method=\"addBulkResultsToDBAndFetchFailedResults\",status=\"success\"}[1m])) by (method, status)",
               "hide": false,
@@ -1458,13 +1517,12 @@ data:
               "refId": "A"
             }
           ],
-          "title": "No.of calls to method  addBulkResultsToDBAndFetchFailedResults",
+          "title": "No.of calls to method addBulkResultsToDBAndFetchFailedResults",
           "type": "timeseries"
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "description": "",
           "fieldConfig": {
@@ -1529,7 +1587,8 @@ data:
           "options": {
             "legend": {
               "calcs": [
-                "max"
+                "max",
+                "mean"
               ],
               "displayMode": "table",
               "placement": "bottom",
@@ -1542,10 +1601,6 @@ data:
           },
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "max(max_over_time(kruizeDB_max{method=\"loadResultsByExperimentName\",status=\"success\"}[1m]))",
               "hide": false,
@@ -1554,10 +1609,6 @@ data:
               "refId": "A"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "sum(increase(kruizeDB_sum{method=\"loadResultsByExperimentName\",status=\"success\"}[1m])) / sum(increase(kruizeDB_count{method=\"loadResultsByExperimentName\",status=\"success\"}[1m]))",
               "hide": false,
@@ -1566,13 +1617,12 @@ data:
               "refId": "B"
             }
           ],
-          "title": "Time (in ms) taken by method  loadResultsByExperimentName",
+          "title": "Time (in s) taken by method loadResultsByExperimentName",
           "type": "timeseries"
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "description": "",
           "fieldConfig": {
@@ -1637,7 +1687,8 @@ data:
           "options": {
             "legend": {
               "calcs": [
-                "max"
+                "max",
+                "mean"
               ],
               "displayMode": "table",
               "placement": "bottom",
@@ -1650,10 +1701,6 @@ data:
           },
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "sum(increase(kruizeDB_count{method=\"loadResultsByExperimentName\"}[1m])) by (method,status)",
               "hide": false,
@@ -1662,13 +1709,12 @@ data:
               "refId": "A"
             }
           ],
-          "title": "No.of calls to method  loadResultsByExperimentName",
+          "title": "No.of calls to method loadResultsByExperimentName",
           "type": "timeseries"
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "description": "",
           "fieldConfig": {
@@ -1733,7 +1779,8 @@ data:
           "options": {
             "legend": {
               "calcs": [
-                "max"
+                "max",
+                "mean"
               ],
               "displayMode": "table",
               "placement": "bottom",
@@ -1746,10 +1793,6 @@ data:
           },
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "max(max_over_time(kruizeDB_max{method=\"addRecommendationToDB\",status=\"success\"}[1m]))",
               "hide": false,
@@ -1758,10 +1801,6 @@ data:
               "refId": "A"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "sum(increase(kruizeDB_sum{method=\"addRecommendationToDB\",status=\"success\"}[1m])) / sum(increase(kruizeDB_count{method=\"addRecommendationToDB\",status=\"success\"}[1m]))",
               "hide": false,
@@ -1770,13 +1809,12 @@ data:
               "refId": "B"
             }
           ],
-          "title": "Time (in ms) taken by method  addRecommendationToDB",
+          "title": "Time (in s) taken by method addRecommendationToDB",
           "type": "timeseries"
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "description": "",
           "fieldConfig": {
@@ -1841,7 +1879,8 @@ data:
           "options": {
             "legend": {
               "calcs": [
-                "max"
+                "max",
+                "mean"
               ],
               "displayMode": "table",
               "placement": "bottom",
@@ -1854,10 +1893,6 @@ data:
           },
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "sum(increase(kruizeDB_count{method=\"addRecommendationToDB\"}[1m])) by (method,status)",
               "hide": false,
@@ -1866,7 +1901,7 @@ data:
               "refId": "A"
             }
           ],
-          "title": "No.of calls to method  addRecommendationToDB",
+          "title": "No.of calls to method addRecommendationToDB",
           "type": "timeseries"
         },
         {
@@ -1879,13 +1914,12 @@ data:
           },
           "id": 68,
           "panels": [],
-          "title": "AWS_RDS METRICS",
+          "title": "ROS SPECIFICS",
           "type": "row"
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "description": "",
           "fieldConfig": {
@@ -1941,7 +1975,7 @@ data:
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
+            "h": 7,
             "w": 12,
             "x": 0,
             "y": 65
@@ -1949,8 +1983,10 @@ data:
           "id": 66,
           "options": {
             "legend": {
-              "calcs": [],
-              "displayMode": "list",
+              "calcs": [
+                "last"
+              ],
+              "displayMode": "table",
               "placement": "bottom",
               "showLegend": true
             },
@@ -1961,13 +1997,9 @@ data:
           },
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
-              },
               "editorMode": "code",
-              "expr": "aws_rds_free_storage_space_average{job=~\"cloudwatch-exporter.*\",dbinstance_identifier=\"kruize-prod\"} / 1024 / 1024",
-              "legendFormat": "kruize-prod",
+              "expr": "aws_rds_free_storage_space_average{job=~\"cloudwatch-exporter.*\",dbinstance_identifier=~\"(kruize-prod|kruize-stage)\"} / 1024 / 1024",
+              "legendFormat": "{{dbinstance_identifier}}",
               "range": true,
               "refId": "A"
             }
@@ -1977,8 +2009,7 @@ data:
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "description": "",
           "fieldConfig": {
@@ -2034,16 +2065,18 @@ data:
             "overrides": []
           },
           "gridPos": {
-            "h": 8,
+            "h": 7,
             "w": 12,
             "x": 12,
             "y": 65
           },
-          "id": 69,
+          "id": 85,
           "options": {
             "legend": {
-              "calcs": [],
-              "displayMode": "list",
+              "calcs": [
+                "last"
+              ],
+              "displayMode": "table",
               "placement": "bottom",
               "showLegend": true
             },
@@ -2054,18 +2087,14 @@ data:
           },
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_APP-SRE-PROD-01-PROMETHEUS}"
-              },
               "editorMode": "code",
-              "expr": "aws_rds_burst_balance_average{job=~\"cloudwatch-exporter.*\",dbinstance_identifier=\"kruize-prod\"}",
+              "expr": "sum(kafka_consumergroup_group_lag{group=\"ros-ocp\", topic=\"hccm.ros.events\"} > 0)",
               "legendFormat": "kruize-prod",
               "range": true,
               "refId": "A"
             }
           ],
-          "title": "burst_balance_average",
+          "title": "kafka lag",
           "type": "timeseries"
         },
         {
@@ -2074,7 +2103,7 @@ data:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 73
+            "y": 72
           },
           "id": 80,
           "panels": [],
@@ -2083,8 +2112,7 @@ data:
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "description": "",
           "fieldConfig": {
@@ -2143,13 +2171,14 @@ data:
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 74
+            "y": 73
           },
           "id": 35,
           "options": {
             "legend": {
               "calcs": [
-                "max"
+                "max",
+                "mean"
               ],
               "displayMode": "table",
               "placement": "bottom",
@@ -2162,10 +2191,6 @@ data:
           },
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "max(max_over_time(kruizeDB_max{method=\"loadExperimentByName\",status=\"success\"}[1m]))",
               "hide": false,
@@ -2174,10 +2199,6 @@ data:
               "refId": "A"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "sum(increase(kruizeDB_sum{method=\"loadExperimentByName\",status=\"success\"}[1m])) / sum(increase(kruizeDB_count{method=\"loadExperimentByName\",status=\"success\"}[1m]))",
               "hide": false,
@@ -2186,13 +2207,12 @@ data:
               "refId": "B"
             }
           ],
-          "title": "Time (in ms) taken by method  loadExperimentByName",
+          "title": "Time (in s) taken by method loadExperimentByName",
           "type": "timeseries"
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "description": "",
           "fieldConfig": {
@@ -2251,13 +2271,14 @@ data:
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 74
+            "y": 73
           },
           "id": 43,
           "options": {
             "legend": {
               "calcs": [
-                "max"
+                "max",
+                "mean"
               ],
               "displayMode": "table",
               "placement": "bottom",
@@ -2270,10 +2291,6 @@ data:
           },
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "sum(increase(kruizeDB_count{method=\"loadExperimentByName\",status=\"success\"}[1m])) by (method,status)",
               "hide": false,
@@ -2282,13 +2299,12 @@ data:
               "refId": "A"
             }
           ],
-          "title": "No.of calls to method  loadExperimentByName",
+          "title": "No.of calls to method loadExperimentByName",
           "type": "timeseries"
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "description": "",
           "fieldConfig": {
@@ -2347,13 +2363,14 @@ data:
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 82
+            "y": 81
           },
           "id": 36,
           "options": {
             "legend": {
               "calcs": [
-                "max"
+                "max",
+                "mean"
               ],
               "displayMode": "table",
               "placement": "bottom",
@@ -2366,10 +2383,6 @@ data:
           },
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "max(max_over_time(kruizeDB_max{method=\"loadRecommendationsByExperimentNameAndDate\",status=\"success\"}[1m]))",
               "hide": false,
@@ -2378,10 +2391,6 @@ data:
               "refId": "A"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "sum(increase(kruizeDB_sum{method=\"loadRecommendationsByExperimentNameAndDate\",status=\"success\"}[1m])) / sum(increase(kruizeDB_count{method=\"loadRecommendationsByExperimentNameAndDate\",status=\"success\"}[1m]))",
               "hide": false,
@@ -2390,13 +2399,12 @@ data:
               "refId": "B"
             }
           ],
-          "title": "Time (in ms) taken by method  loadRecommendationsByExperimentNameAndDate",
+          "title": "Time (in s) taken by method loadRecommendationsByExperimentNameAndDate",
           "type": "timeseries"
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "description": "",
           "fieldConfig": {
@@ -2455,13 +2463,14 @@ data:
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 82
+            "y": 81
           },
           "id": 45,
           "options": {
             "legend": {
               "calcs": [
-                "max"
+                "max",
+                "mean"
               ],
               "displayMode": "table",
               "placement": "bottom",
@@ -2474,10 +2483,6 @@ data:
           },
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "sum(increase(kruizeDB_count{method=\"loadRecommendationsByExperimentNameAndDate\",status=\"success\"}[1m])) by (method,status)",
               "hide": false,
@@ -2486,13 +2491,12 @@ data:
               "refId": "A"
             }
           ],
-          "title": "No.of calls to method  loadRecommendationsByExperimentNameAndDate",
+          "title": "No.of calls to method loadRecommendationsByExperimentNameAndDate",
           "type": "timeseries"
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "description": "",
           "fieldConfig": {
@@ -2551,13 +2555,14 @@ data:
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 90
+            "y": 89
           },
           "id": 33,
           "options": {
             "legend": {
               "calcs": [
-                "max"
+                "max",
+                "mean"
               ],
               "displayMode": "table",
               "placement": "bottom",
@@ -2570,10 +2575,6 @@ data:
           },
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "max(max_over_time(kruizeDB_max{method=\"addExperimentToDB\",status=\"success\"}[1m]))",
               "hide": false,
@@ -2582,10 +2583,6 @@ data:
               "refId": "A"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "sum(increase(kruizeDB_sum{method=\"addExperimentToDB\",status=\"success\"}[1m])) / sum(increase(kruizeDB_count{method=\"addExperimentToDB\",status=\"success\"}[1m]))",
               "hide": false,
@@ -2594,13 +2591,12 @@ data:
               "refId": "B"
             }
           ],
-          "title": "Time (in ms) taken by method  addExperimentToDB",
+          "title": "Time (in s) taken by method addExperimentToDB",
           "type": "timeseries"
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "description": "",
           "fieldConfig": {
@@ -2659,13 +2655,14 @@ data:
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 90
+            "y": 89
           },
           "id": 49,
           "options": {
             "legend": {
               "calcs": [
-                "max"
+                "max",
+                "mean"
               ],
               "displayMode": "table",
               "placement": "bottom",
@@ -2678,10 +2675,6 @@ data:
           },
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "sum(increase(kruizeDB_count{method=\"addExperimentToDB\"}[1m])) by (method,status)",
               "hide": false,
@@ -2690,7 +2683,7 @@ data:
               "refId": "A"
             }
           ],
-          "title": "No.of calls to method  addExperimentToDB",
+          "title": "No.of calls to method addExperimentToDB",
           "type": "timeseries"
         },
         {
@@ -2699,7 +2692,7 @@ data:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 98
+            "y": 97
           },
           "id": 78,
           "panels": [],
@@ -2708,8 +2701,7 @@ data:
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "description": "",
           "fieldConfig": {
@@ -2768,13 +2760,14 @@ data:
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 99
+            "y": 98
           },
           "id": 48,
           "options": {
             "legend": {
               "calcs": [
-                "max"
+                "max",
+                "mean"
               ],
               "displayMode": "table",
               "placement": "bottom",
@@ -2787,10 +2780,6 @@ data:
           },
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "max(max_over_time(kruizeAPI_max{api=\"createExperiment\",status=\"success\"}[1m]))",
               "hide": false,
@@ -2799,10 +2788,6 @@ data:
               "refId": "A"
             },
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "sum(increase(kruizeAPI_sum{api=\"createExperiment\",status=\"success\"}[1m])) / sum(increase(kruizeAPI_count{api=\"createExperiment\",status=\"success\"}[1m]))",
               "hide": false,
@@ -2811,13 +2796,12 @@ data:
               "refId": "B"
             }
           ],
-          "title": "Time (in ms) taken by api createExperiment",
+          "title": "Time (in s) taken by api createExperiment",
           "type": "timeseries"
         },
         {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "description": "",
           "fieldConfig": {
@@ -2876,13 +2860,14 @@ data:
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 99
+            "y": 98
           },
           "id": 40,
           "options": {
             "legend": {
               "calcs": [
-                "max"
+                "max",
+                "mean"
               ],
               "displayMode": "table",
               "placement": "bottom",
@@ -2895,10 +2880,6 @@ data:
           },
           "targets": [
             {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
               "editorMode": "code",
               "expr": "sum(increase(kruizeAPI_count{api=\"createExperiment\"}[1m])) by (api,status)",
               "hide": false,
@@ -2907,843 +2888,60 @@ data:
               "refId": "A"
             }
           ],
-          "title": "No.of calls to api  createExperiment",
-          "type": "timeseries"
-        },
-        {
-          "collapsed": false,
-          "gridPos": {
-            "h": 1,
-            "w": 24,
-            "x": 0,
-            "y": 107
-          },
-          "id": 71,
-          "panels": [],
-          "title": "Network",
-          "type": "row"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-          },
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 10,
-                "gradientMode": "hue",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineInterpolation": "linear",
-                "lineWidth": 0.75,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 108
-          },
-          "id": 72,
-          "options": {
-            "legend": {
-              "calcs": [
-                "max"
-              ],
-              "displayMode": "table",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "tooltip": {
-              "mode": "multi",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
-              "editorMode": "code",
-              "expr": "sum(rate(container_network_receive_bytes_total{pod=~\"kruize-recommendations-[^-]*-[^-]*$\"}[1m]))",
-              "hide": false,
-              "legendFormat": "kruize-recommendations",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "network_receive_bytes",
-          "type": "timeseries"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-          },
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 10,
-                "gradientMode": "hue",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineInterpolation": "linear",
-                "lineWidth": 0.75,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 108
-          },
-          "id": 73,
-          "options": {
-            "legend": {
-              "calcs": [
-                "max"
-              ],
-              "displayMode": "table",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "tooltip": {
-              "mode": "multi",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
-              "editorMode": "code",
-              "expr": "sum(rate(container_network_transmit_bytes_total{pod=~\"kruize-recommendations-[^-]*-[^-]*$\"}[1m]))",
-              "hide": false,
-              "legendFormat": "kruize-recommendations",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "network_transmit_bytes",
-          "type": "timeseries"
-        },
-        {
-          "collapsed": false,
-          "gridPos": {
-            "h": 1,
-            "w": 24,
-            "x": 0,
-            "y": 116
-          },
-          "id": 39,
-          "panels": [],
-          "title": "Kruize Metrics for all pods",
-          "type": "row"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-          },
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 10,
-                "gradientMode": "hue",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineInterpolation": "linear",
-                "lineStyle": {
-                  "dash": [
-                    0,
-                    10
-                  ],
-                  "fill": "dot"
-                },
-                "lineWidth": 1,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "always",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 0,
-            "y": 117
-          },
-          "id": 31,
-          "options": {
-            "legend": {
-              "calcs": [],
-              "displayMode": "list",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "tooltip": {
-              "mode": "multi",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
-              "editorMode": "code",
-              "expr": "max by(method) (kruizeDB_max{status=\"success\"})",
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "Max time (in ms) taken by DB methods",
-          "type": "timeseries"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-          },
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 10,
-                "gradientMode": "hue",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineInterpolation": "linear",
-                "lineStyle": {
-                  "dash": [
-                    0,
-                    10
-                  ],
-                  "fill": "dot"
-                },
-                "lineWidth": 0.75,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "always",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 12,
-            "x": 12,
-            "y": 117
-          },
-          "id": 54,
-          "options": {
-            "legend": {
-              "calcs": [
-                "max"
-              ],
-              "displayMode": "table",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "tooltip": {
-              "mode": "multi",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
-              "editorMode": "code",
-              "expr": "max(max_over_time(kruizeAPI_max{status=\"success\"}[1m])) by (api)",
-              "hide": false,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "Max time (in ms) taken by Kruize api's",
-          "type": "timeseries"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-          },
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 10,
-                "gradientMode": "hue",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineInterpolation": "linear",
-                "lineStyle": {
-                  "dash": [
-                    0,
-                    10
-                  ],
-                  "fill": "dot"
-                },
-                "lineWidth": 0.75,
-                "pointSize": 5,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "always",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 9,
-            "w": 24,
-            "x": 0,
-            "y": 125
-          },
-          "id": 63,
-          "options": {
-            "legend": {
-              "calcs": [
-                "max"
-              ],
-              "displayMode": "table",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "tooltip": {
-              "mode": "multi",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
-              "editorMode": "code",
-              "expr": "sum(rate(container_cpu_usage_seconds_total{pod=~\"kruize-recommendations-[^-]*-[^-]*$\"}[1m])) by (pod)",
-              "hide": false,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
-              "editorMode": "code",
-              "expr": "avg(kube_pod_container_resource_requests{resource=\"cpu\",unit=\"core\",pod=~\"kruize-recommendations-[^-]*-[^-]*\"})",
-              "hide": true,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "B"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
-              "editorMode": "code",
-              "expr": "avg(kube_pod_container_resource_limits{resource=\"cpu\",unit=\"core\",pod=~\"kruize-recommendations-[^-]*-[^-]*\"})",
-              "hide": true,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "C"
-            }
-          ],
-          "title": "Individual CPU Usage",
-          "type": "timeseries"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-          },
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "drawStyle": "line",
-                "fillOpacity": 0,
-                "gradientMode": "hue",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineInterpolation": "linear",
-                "lineStyle": {
-                  "dash": [
-                    0,
-                    10
-                  ],
-                  "fill": "dot"
-                },
-                "lineWidth": 0.75,
-                "pointSize": 3,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "always",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 9,
-            "w": 24,
-            "x": 0,
-            "y": 134
-          },
-          "id": 64,
-          "options": {
-            "legend": {
-              "calcs": [
-                "max"
-              ],
-              "displayMode": "table",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "tooltip": {
-              "mode": "multi",
-              "sort": "none"
-            }
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
-              "editorMode": "code",
-              "expr": "sum(container_memory_working_set_bytes{pod=~\"kruize-recommendations-[^-]*-[^-]*$\"}) by (pod) / 1024 / 1024",
-              "hide": false,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
-              "editorMode": "code",
-              "expr": "avg(kube_pod_container_resource_requests{resource=\"memory\",unit=\"byte\",pod=~\"kruize-recommendations-[^-]*-[^-]*\"})",
-              "hide": true,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "B"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-              },
-              "editorMode": "code",
-              "expr": "avg(kube_pod_container_resource_limits{resource=\"memory\",unit=\"byte\",pod=~\"kruize-recommendations-[^-]*-[^-]*\"})",
-              "hide": true,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "C"
-            }
-          ],
-          "title": "Individual Memory Usage (in MB)",
+          "title": "No.of calls to api createExperiment",
           "type": "timeseries"
         },
         {
           "collapsed": true,
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PD776AFABBE26000A"
-          },
           "gridPos": {
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 143
+            "y": 106
           },
-          "id": 4,
+          "id": 71,
           "panels": [
             {
               "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_TELEMETER-RECENT-PRODUCTION}"
+                "uid": "${datasource}"
               },
-              "gridPos": {
-                "h": 9,
-                "w": 20,
-                "x": 0,
-                "y": 118
-              },
-              "id": 28,
-              "links": [],
-              "options": {
-                "code": {
-                  "language": "plaintext",
-                  "showLineNumbers": false,
-                  "showMiniMap": false
-                },
-                "content": "# How to bulid a dashboard using this Playground\n\n## Full documentation on creating Dashboards\n\nhttps://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/app-sre/monitoring.md#VisualizationwithGrafana\n\n## Getting started with the Playground dashboard\n\nBelow you wil find all available panels to be used for a dashboard.\n\nTo start, select a panel to use, and duplicate it (`Panel options > More > Duplicate`).\n\nDrag it to the top of the screen (above the Building blocks Row) and change the panel title, metrics, and any other settings as required.\n\n\n## Saving your dashboard to Grafana\n\nSince all dashboards are managed through source control, saving dashboards is not enabled.\n\nTo save your new dashboard, export it to a JSON file (through the options on the top right of the screen) and save it locally. You will now need to create a merge request to app-interface.\n\nPlease see: https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/docs/app-sre/monitoring.md#adding-dashboards\n\n## Tips and Tricks\n\n* Keep the `Building blocks` Row as part of the dashboard in case you require changes in the future\n* Export the dashboard with the `Building blocks` Row collapsed\n* Group panels together using a Row object (you may find some below)\n\n\nGood luck!",
-                "mode": "markdown"
-              },
-              "pluginVersion": "9.3.8",
-              "targets": [
-                {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "${DS_TELEMETER-RECENT-PRODUCTION}"
-                  },
-                  "refId": "A"
-                }
-              ],
-              "title": "Playground usage",
-              "type": "text"
-            },
-            {
-              "aliasColors": {},
-              "bars": false,
-              "dashLength": 10,
-              "dashes": false,
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_TELEMETER-RECENT-PRODUCTION}"
-              },
-              "fieldConfig": {
-                "defaults": {
-                  "links": []
-                },
-                "overrides": []
-              },
-              "fill": 1,
-              "fillGradient": 0,
-              "gridPos": {
-                "h": 7,
-                "w": 5,
-                "x": 0,
-                "y": 127
-              },
-              "hiddenSeries": false,
-              "id": 2,
-              "legend": {
-                "avg": false,
-                "current": false,
-                "max": false,
-                "min": false,
-                "show": true,
-                "total": false,
-                "values": false
-              },
-              "lines": true,
-              "linewidth": 1,
-              "links": [],
-              "nullPointMode": "null",
-              "options": {
-                "alertThreshold": true
-              },
-              "percentage": false,
-              "pluginVersion": "9.3.8",
-              "pointradius": 5,
-              "points": false,
-              "renderer": "flot",
-              "seriesOverrides": [],
-              "spaceLength": 10,
-              "stack": false,
-              "steppedLine": false,
-              "targets": [
-                {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "${DS_TELEMETER-RECENT-PRODUCTION}"
-                  },
-                  "refId": "A"
-                }
-              ],
-              "thresholds": [],
-              "timeRegions": [],
-              "title": "Graph",
-              "tooltip": {
-                "shared": true,
-                "sort": 0,
-                "value_type": "individual"
-              },
-              "type": "graph",
-              "xaxis": {
-                "mode": "time",
-                "show": true,
-                "values": []
-              },
-              "yaxes": [
-                {
-                  "format": "short",
-                  "logBase": 1,
-                  "show": true
-                },
-                {
-                  "format": "short",
-                  "logBase": 1,
-                  "show": true
-                }
-              ],
-              "yaxis": {
-                "align": false
-              }
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_TELEMETER-RECENT-PRODUCTION}"
-              },
+              "description": "",
               "fieldConfig": {
                 "defaults": {
                   "color": {
-                    "mode": "thresholds"
+                    "mode": "palette-classic"
                   },
-                  "mappings": [
-                    {
-                      "options": {
-                        "match": "null",
-                        "result": {
-                          "text": "N/A"
-                        }
-                      },
-                      "type": "special"
+                  "custom": {
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 10,
+                    "gradientMode": "hue",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "lineInterpolation": "linear",
+                    "lineWidth": 0.75,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
                     }
-                  ],
+                  },
+                  "mappings": [],
                   "thresholds": {
                     "mode": "absolute",
                     "steps": [
@@ -3756,367 +2954,139 @@ data:
                         "value": 80
                       }
                     ]
-                  },
-                  "unit": "none"
-                },
-                "overrides": []
-              },
-              "gridPos": {
-                "h": 7,
-                "w": 5,
-                "x": 5,
-                "y": 127
-              },
-              "id": 6,
-              "links": [],
-              "maxDataPoints": 100,
-              "options": {
-                "colorMode": "none",
-                "graphMode": "none",
-                "justifyMode": "auto",
-                "orientation": "horizontal",
-                "reduceOptions": {
-                  "calcs": [
-                    "mean"
-                  ],
-                  "fields": "",
-                  "values": false
-                },
-                "textMode": "auto"
-              },
-              "pluginVersion": "9.3.8",
-              "targets": [
-                {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "${DS_TELEMETER-RECENT-PRODUCTION}"
-                  },
-                  "refId": "A"
-                }
-              ],
-              "title": "SingleStat",
-              "type": "stat"
-            },
-            {
-              "columns": [],
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_TELEMETER-RECENT-PRODUCTION}"
-              },
-              "fontSize": "100%",
-              "gridPos": {
-                "h": 7,
-                "w": 5,
-                "x": 10,
-                "y": 127
-              },
-              "id": 8,
-              "links": [],
-              "scroll": true,
-              "showHeader": true,
-              "sort": {
-                "col": 0,
-                "desc": true
-              },
-              "styles": [
-                {
-                  "alias": "Time",
-                  "align": "auto",
-                  "dateFormat": "YYYY-MM-DD HH:mm:ss",
-                  "pattern": "Time",
-                  "type": "date"
-                },
-                {
-                  "alias": "",
-                  "align": "auto",
-                  "colors": [
-                    "rgba(245, 54, 54, 0.9)",
-                    "rgba(237, 129, 40, 0.89)",
-                    "rgba(50, 172, 45, 0.97)"
-                  ],
-                  "decimals": 2,
-                  "pattern": "/.*/",
-                  "thresholds": [],
-                  "type": "number",
-                  "unit": "short"
-                }
-              ],
-              "targets": [
-                {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "${DS_TELEMETER-RECENT-PRODUCTION}"
-                  },
-                  "refId": "A"
-                }
-              ],
-              "title": "Table",
-              "transform": "timeseries_to_columns",
-              "type": "table-old"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_TELEMETER-RECENT-PRODUCTION}"
-              },
-              "gridPos": {
-                "h": 7,
-                "w": 5,
-                "x": 15,
-                "y": 127
-              },
-              "id": 10,
-              "links": [],
-              "options": {
-                "code": {
-                  "language": "plaintext",
-                  "showLineNumbers": false,
-                  "showMiniMap": false
-                },
-                "content": "# title",
-                "mode": "markdown"
-              },
-              "pluginVersion": "9.3.8",
-              "targets": [
-                {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "${DS_TELEMETER-RECENT-PRODUCTION}"
-                  },
-                  "refId": "A"
-                }
-              ],
-              "title": "Text",
-              "type": "text"
-            },
-            {
-              "cards": {},
-              "color": {
-                "cardColor": "#b4ff00",
-                "colorScale": "sqrt",
-                "colorScheme": "interpolateOranges",
-                "exponent": 0.5,
-                "mode": "spectrum"
-              },
-              "dataFormat": "timeseries",
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_TELEMETER-RECENT-PRODUCTION}"
-              },
-              "fieldConfig": {
-                "defaults": {
-                  "custom": {
-                    "hideFrom": {
-                      "legend": false,
-                      "tooltip": false,
-                      "viz": false
-                    },
-                    "scaleDistribution": {
-                      "type": "linear"
-                    }
                   }
                 },
                 "overrides": []
               },
               "gridPos": {
-                "h": 7,
-                "w": 5,
+                "h": 8,
+                "w": 12,
                 "x": 0,
-                "y": 134
+                "y": 108
               },
-              "heatmap": {},
-              "hideZeroBuckets": false,
-              "highlightCards": true,
-              "id": 12,
-              "legend": {
-                "show": false
-              },
-              "links": [],
+              "id": 72,
               "options": {
-                "calculate": true,
-                "calculation": {},
-                "cellGap": 2,
-                "cellValues": {},
-                "color": {
-                  "exponent": 0.5,
-                  "fill": "#b4ff00",
-                  "mode": "scheme",
-                  "reverse": false,
-                  "scale": "exponential",
-                  "scheme": "Oranges",
-                  "steps": 128
-                },
-                "exemplars": {
-                  "color": "rgba(255,0,255,0.7)"
-                },
-                "filterValues": {
-                  "le": 1e-9
-                },
                 "legend": {
-                  "show": false
+                  "calcs": [
+                    "max",
+                    "mean"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom",
+                  "showLegend": true
                 },
-                "rowsFrame": {
-                  "layout": "auto"
-                },
-                "showValue": "never",
                 "tooltip": {
-                  "show": true,
-                  "yHistogram": false
+                  "mode": "multi",
+                  "sort": "none"
+                }
+              },
+              "targets": [
+                {
+                  "editorMode": "code",
+                  "expr": "sum(rate(container_network_receive_bytes_total{pod=~\"kruize-recommendations-[^-]*-[^-]*$\"}[1m]))",
+                  "hide": false,
+                  "legendFormat": "kruize-recommendations",
+                  "range": true,
+                  "refId": "A"
+                }
+              ],
+              "title": "network_receive_bytes",
+              "type": "timeseries"
+            },
+            {
+              "datasource": {
+                "uid": "${datasource}"
+              },
+              "description": "",
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 10,
+                    "gradientMode": "hue",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "lineInterpolation": "linear",
+                    "lineWidth": 0.75,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "auto",
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
+                      }
+                    ]
+                  }
                 },
-                "yAxis": {
-                  "axisPlacement": "left",
-                  "reverse": false,
-                  "unit": "short"
-                }
-              },
-              "pluginVersion": "9.3.8",
-              "reverseYBuckets": false,
-              "targets": [
-                {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "${DS_TELEMETER-RECENT-PRODUCTION}"
-                  },
-                  "refId": "A"
-                }
-              ],
-              "title": "Heatmap",
-              "tooltip": {
-                "show": true,
-                "showHistogram": false
-              },
-              "type": "heatmap",
-              "xAxis": {
-                "show": true
-              },
-              "yAxis": {
-                "format": "short",
-                "logBase": 1,
-                "show": true
-              },
-              "yBucketBound": "auto"
-            },
-            {
-              "dashboardFilter": "",
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_TELEMETER-RECENT-PRODUCTION}"
+                "overrides": []
               },
               "gridPos": {
-                "h": 7,
-                "w": 5,
-                "x": 5,
-                "y": 134
+                "h": 8,
+                "w": 12,
+                "x": 12,
+                "y": 108
               },
-              "id": 14,
-              "limit": 10,
-              "links": [],
-              "nameFilter": "",
-              "onlyAlertsOnDashboard": false,
+              "id": 73,
               "options": {
-                "alertInstanceLabelFilter": "",
-                "alertName": "",
-                "dashboardAlerts": false,
-                "groupBy": [],
-                "groupMode": "default",
-                "maxItems": 20,
-                "sortOrder": 1,
-                "stateFilter": {
-                  "error": true,
-                  "firing": true,
-                  "noData": false,
-                  "normal": false,
-                  "pending": true
+                "legend": {
+                  "calcs": [
+                    "max",
+                    "mean"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom",
+                  "showLegend": true
                 },
-                "viewMode": "list"
+                "tooltip": {
+                  "mode": "multi",
+                  "sort": "none"
+                }
               },
-              "show": "current",
-              "sortOrder": 1,
-              "stateFilter": [],
               "targets": [
                 {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "${DS_TELEMETER-RECENT-PRODUCTION}"
-                  },
+                  "editorMode": "code",
+                  "expr": "sum(rate(container_network_transmit_bytes_total{pod=~\"kruize-recommendations-[^-]*-[^-]*$\"}[1m]))",
+                  "hide": false,
+                  "legendFormat": "kruize-recommendations",
+                  "range": true,
                   "refId": "A"
                 }
               ],
-              "title": "Alert list",
-              "type": "alertlist"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_TELEMETER-RECENT-PRODUCTION}"
-              },
-              "gridPos": {
-                "h": 7,
-                "w": 5,
-                "x": 10,
-                "y": 134
-              },
-              "id": 16,
-              "links": [],
-              "options": {
-                "maxItems": 10,
-                "query": "",
-                "showHeadings": true,
-                "showRecentlyViewed": false,
-                "showSearch": false,
-                "showStarred": true,
-                "tags": []
-              },
-              "pluginVersion": "9.3.8",
-              "tags": [],
-              "targets": [
-                {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "${DS_TELEMETER-RECENT-PRODUCTION}"
-                  },
-                  "refId": "A"
-                }
-              ],
-              "title": "Dashboard list",
-              "type": "dashlist"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_TELEMETER-RECENT-PRODUCTION}"
-              },
-              "gridPos": {
-                "h": 7,
-                "w": 5,
-                "x": 15,
-                "y": 134
-              },
-              "id": 20,
-              "links": [],
-              "targets": [
-                {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "${DS_TELEMETER-RECENT-PRODUCTION}"
-                  },
-                  "refId": "A"
-                }
-              ],
-              "title": "Plugin list",
-              "type": "pluginlist"
+              "title": "network_transmit_bytes",
+              "type": "timeseries"
             }
           ],
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PD776AFABBE26000A"
-              },
-              "refId": "A"
-            }
-          ],
-          "title": "Building blocks",
+          "title": "Network",
           "type": "row"
         },
         {
@@ -4125,14 +3095,454 @@ data:
             "h": 1,
             "w": 24,
             "x": 0,
-            "y": 144
+            "y": 107
+          },
+          "id": 39,
+          "panels": [
+            {
+              "datasource": {
+                "uid": "${datasource}"
+              },
+              "description": "",
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 10,
+                    "gradientMode": "hue",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "lineInterpolation": "linear",
+                    "lineStyle": {
+                      "dash": [
+                        0,
+                        10
+                      ],
+                      "fill": "dot"
+                    },
+                    "lineWidth": 1,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "always",
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
+                      }
+                    ]
+                  }
+                },
+                "overrides": []
+              },
+              "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 0,
+                "y": 117
+              },
+              "id": 31,
+              "options": {
+                "legend": {
+                  "calcs": [
+                    "max",
+                    "mean"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "mode": "multi",
+                  "sort": "none"
+                }
+              },
+              "targets": [
+                {
+                  "editorMode": "code",
+                  "expr": "max by(method) (kruizeDB_max{status=\"success\"})",
+                  "legendFormat": "__auto",
+                  "range": true,
+                  "refId": "A"
+                }
+              ],
+              "title": "Max time (in s) taken by DB methods",
+              "type": "timeseries"
+            },
+            {
+              "datasource": {
+                "uid": "${datasource}"
+              },
+              "description": "",
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 10,
+                    "gradientMode": "hue",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "lineInterpolation": "linear",
+                    "lineStyle": {
+                      "dash": [
+                        0,
+                        10
+                      ],
+                      "fill": "dot"
+                    },
+                    "lineWidth": 0.75,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "always",
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
+                      }
+                    ]
+                  }
+                },
+                "overrides": []
+              },
+              "gridPos": {
+                "h": 8,
+                "w": 12,
+                "x": 12,
+                "y": 117
+              },
+              "id": 54,
+              "options": {
+                "legend": {
+                  "calcs": [
+                    "max",
+                    "mean"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "mode": "multi",
+                  "sort": "none"
+                }
+              },
+              "targets": [
+                {
+                  "editorMode": "code",
+                  "expr": "max(max_over_time(kruizeAPI_max{status=\"success\"}[1m])) by (api)",
+                  "hide": false,
+                  "legendFormat": "__auto",
+                  "range": true,
+                  "refId": "A"
+                }
+              ],
+              "title": "Max time (in s) taken by Kruize api's",
+              "type": "timeseries"
+            },
+            {
+              "datasource": {
+                "uid": "${datasource}"
+              },
+              "description": "",
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 10,
+                    "gradientMode": "hue",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "lineInterpolation": "linear",
+                    "lineStyle": {
+                      "dash": [
+                        0,
+                        10
+                      ],
+                      "fill": "dot"
+                    },
+                    "lineWidth": 0.75,
+                    "pointSize": 5,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "always",
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
+                      }
+                    ]
+                  }
+                },
+                "overrides": []
+              },
+              "gridPos": {
+                "h": 9,
+                "w": 24,
+                "x": 0,
+                "y": 125
+              },
+              "id": 63,
+              "options": {
+                "legend": {
+                  "calcs": [
+                    "max",
+                    "mean"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "mode": "multi",
+                  "sort": "none"
+                }
+              },
+              "targets": [
+                {
+                  "editorMode": "code",
+                  "expr": "sum(rate(container_cpu_usage_seconds_total{pod=~\"kruize-recommendations-[^-]*-[^-]*$\"}[1m])) by (pod)",
+                  "hide": false,
+                  "legendFormat": "__auto",
+                  "range": true,
+                  "refId": "A"
+                },
+                {
+                  "editorMode": "code",
+                  "expr": "avg(kube_pod_container_resource_requests{resource=\"cpu\",unit=\"core\",pod=~\"kruize-recommendations-[^-]*-[^-]*\"})",
+                  "hide": true,
+                  "legendFormat": "__auto",
+                  "range": true,
+                  "refId": "B"
+                },
+                {
+                  "editorMode": "code",
+                  "expr": "avg(kube_pod_container_resource_limits{resource=\"cpu\",unit=\"core\",pod=~\"kruize-recommendations-[^-]*-[^-]*\"})",
+                  "hide": true,
+                  "legendFormat": "__auto",
+                  "range": true,
+                  "refId": "C"
+                }
+              ],
+              "title": "Individual CPU Usage",
+              "type": "timeseries"
+            },
+            {
+              "datasource": {
+                "uid": "${datasource}"
+              },
+              "description": "",
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "palette-classic"
+                  },
+                  "custom": {
+                    "axisCenteredZero": false,
+                    "axisColorMode": "text",
+                    "axisLabel": "",
+                    "axisPlacement": "auto",
+                    "barAlignment": 0,
+                    "drawStyle": "line",
+                    "fillOpacity": 0,
+                    "gradientMode": "hue",
+                    "hideFrom": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": false
+                    },
+                    "lineInterpolation": "linear",
+                    "lineStyle": {
+                      "dash": [
+                        0,
+                        10
+                      ],
+                      "fill": "dot"
+                    },
+                    "lineWidth": 0.75,
+                    "pointSize": 3,
+                    "scaleDistribution": {
+                      "type": "linear"
+                    },
+                    "showPoints": "always",
+                    "spanNulls": false,
+                    "stacking": {
+                      "group": "A",
+                      "mode": "none"
+                    },
+                    "thresholdsStyle": {
+                      "mode": "off"
+                    }
+                  },
+                  "mappings": [],
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": null
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
+                      }
+                    ]
+                  }
+                },
+                "overrides": []
+              },
+              "gridPos": {
+                "h": 9,
+                "w": 24,
+                "x": 0,
+                "y": 134
+              },
+              "id": 64,
+              "options": {
+                "legend": {
+                  "calcs": [
+                    "max",
+                    "mean"
+                  ],
+                  "displayMode": "table",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "mode": "multi",
+                  "sort": "none"
+                }
+              },
+              "targets": [
+                {
+                  "editorMode": "code",
+                  "expr": "sum(container_memory_working_set_bytes{pod=~\"kruize-recommendations-[^-]*-[^-]*$\"}) by (pod) / 1024 / 1024",
+                  "hide": false,
+                  "legendFormat": "__auto",
+                  "range": true,
+                  "refId": "A"
+                },
+                {
+                  "editorMode": "code",
+                  "expr": "avg(kube_pod_container_resource_requests{resource=\"memory\",unit=\"byte\",pod=~\"kruize-recommendations-[^-]*-[^-]*\"})",
+                  "hide": true,
+                  "legendFormat": "__auto",
+                  "range": true,
+                  "refId": "B"
+                },
+                {
+                  "editorMode": "code",
+                  "expr": "avg(kube_pod_container_resource_limits{resource=\"memory\",unit=\"byte\",pod=~\"kruize-recommendations-[^-]*-[^-]*\"})",
+                  "hide": true,
+                  "legendFormat": "__auto",
+                  "range": true,
+                  "refId": "C"
+                }
+              ],
+              "title": "Individual Memory Usage (in MB)",
+              "type": "timeseries"
+            }
+          ],
+          "title": "Kruize Metrics for all pods",
+          "type": "row"
+        },
+        {
+          "collapsed": true,
+          "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 108
           },
           "id": 82,
           "panels": [
             {
               "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "description": "",
               "fieldConfig": {
@@ -4191,13 +3601,14 @@ data:
                 "h": 9,
                 "w": 12,
                 "x": 0,
-                "y": 145
+                "y": 144
               },
               "id": 74,
               "options": {
                 "legend": {
                   "calcs": [
-                    "max"
+                    "max",
+                    "mean"
                   ],
                   "displayMode": "table",
                   "placement": "bottom",
@@ -4210,10 +3621,6 @@ data:
               },
               "targets": [
                 {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-                  },
                   "editorMode": "builder",
                   "exemplar": false,
                   "expr": "quantile(1, rate(kruizeAPI_sum{api=\"updateRecommendations\", status=\"success\"}[24h]))",
@@ -4226,10 +3633,6 @@ data:
                   "refId": "A"
                 },
                 {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-                  },
                   "editorMode": "builder",
                   "exemplar": false,
                   "expr": "quantile(0.95, rate(kruizeAPI_sum{api=\"updateRecommendations\", status=\"success\"}[24h]))",
@@ -4242,10 +3645,6 @@ data:
                   "refId": "B"
                 },
                 {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-                  },
                   "editorMode": "builder",
                   "exemplar": false,
                   "expr": "quantile(0.75, rate(kruizeAPI_sum{api=\"updateRecommendations\", status=\"success\"}[24h]))",
@@ -4258,10 +3657,6 @@ data:
                   "refId": "C"
                 },
                 {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-                  },
                   "editorMode": "builder",
                   "exemplar": false,
                   "expr": "quantile(0.5, rate(kruizeAPI_sum{api=\"updateRecommendations\", status=\"success\"}[24h]))",
@@ -4274,13 +3669,12 @@ data:
                   "refId": "D"
                 }
               ],
-              "title": "Percentile of time (in ms) taken by API updateRecommendations",
+              "title": "Percentile of time (in s) taken by API updateRecommendations",
               "type": "timeseries"
             },
             {
               "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_CRCP01UE1-PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "description": "",
               "fieldConfig": {
@@ -4346,13 +3740,14 @@ data:
                 "h": 9,
                 "w": 12,
                 "x": 12,
-                "y": 145
+                "y": 144
               },
               "id": 76,
               "options": {
                 "legend": {
                   "calcs": [
-                    "max"
+                    "max",
+                    "mean"
                   ],
                   "displayMode": "table",
                   "placement": "bottom",
@@ -4365,10 +3760,6 @@ data:
               },
               "targets": [
                 {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-                  },
                   "editorMode": "builder",
                   "exemplar": false,
                   "expr": "quantile(1, increase(kruizeAPI_count{api=\"updateRecommendations\", status=\"success\"}[24h]))",
@@ -4381,10 +3772,6 @@ data:
                   "refId": "A"
                 },
                 {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-                  },
                   "editorMode": "builder",
                   "exemplar": false,
                   "expr": "quantile(0.95, increase(kruizeAPI_count{api=\"updateRecommendations\", status=\"success\"}[24h]))",
@@ -4397,10 +3784,6 @@ data:
                   "refId": "B"
                 },
                 {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-                  },
                   "editorMode": "builder",
                   "exemplar": false,
                   "expr": "quantile(0.75, increase(kruizeAPI_count{api=\"updateRecommendations\", status=\"success\"}[24h]))",
@@ -4413,10 +3796,6 @@ data:
                   "refId": "C"
                 },
                 {
-                  "datasource": {
-                    "type": "prometheus",
-                    "uid": "${DS_CRCP01UE1-PROMETHEUS}"
-                  },
                   "editorMode": "builder",
                   "exemplar": false,
                   "expr": "quantile(0.5, increase(kruizeAPI_count{api=\"updateRecommendations\", status=\"success\"}[24h]))",
@@ -4446,18 +3825,22 @@ data:
           {
             "current": {
               "selected": true,
-              "text": "crcp01ue1-prometheus",
-              "value": "crcp01ue1-prometheus"
+              "text": [
+                "crcp01ue1-prometheus"
+              ],
+              "value": [
+                "crcp01ue1-prometheus"
+              ]
             },
             "hide": 0,
             "includeAll": false,
-            "multi": false,
+            "multi": true,
             "name": "datasource",
             "options": [],
             "query": "prometheus",
             "queryValue": "",
             "refresh": 1,
-            "regex": "",
+            "regex": "/crc[0-9a-zA-Z]*?-prometheus|eph[0-9a-zA-Z]*?-prometheus|app-sre-(prod|stage)-[0-9]*?-prometheus/",
             "skipUrlSync": false,
             "type": "datasource"
           }
@@ -4494,16 +3877,14 @@ data:
       },
       "timezone": "",
       "title": "Kruize Metrics",
-      "uid": "playground",
-      "version": 1,
+      "uid": "kruizemetricsUx9248",
+      "version": 2,
       "weekStart": ""
     }
 kind: ConfigMap
 metadata:
-  creationTimestamp: null
   name: grafana-dashboard-kruize-metrics
   labels:
     grafana_dashboard: "true"
   annotations:
-    grafana-folder: /grafana-dashboard-definitions/0
-
+    grafana-folder: /grafana-dashboard-definitions/Insights
