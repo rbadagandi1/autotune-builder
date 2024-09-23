@@ -19,7 +19,7 @@ metadata:
 spec:
   params:
   - name: git-url
-    value: 'https://github.com/rbadagandi1/autotune'
+    value: 'https://github.com/rbadagandi1/autotune.git'
   - name: revision
     value: '{{revision}}'
   - name: output-image
