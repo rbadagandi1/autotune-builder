@@ -1,0 +1,10 @@
+# Start from a base image
+FROM ubuntu:latest
+
+WORKDIR /app
+
+COPY build.sh .
+
+RUN chmod +x build.sh
+
+CMD ["./build.sh"]
